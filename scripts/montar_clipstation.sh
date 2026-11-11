@@ -13,7 +13,7 @@
 # = crop=480:270:1440:0).
 #
 # Variáveis opcionais: MARCA (texto da marca d'água, padrão "CLIP STATION"; MARCA="" desliga),
-#                      FONTE (arquivo .ttf/.otf), W/H/FPS (padrão 1920x1080 @ 30).
+#                      TEXTO_VINHETA (padrão "CLIPSTATION"), FONTE (.ttf/.otf), W/H/FPS (padrão 1920x1080 @ 30).
 set -euo pipefail
 
 ROTEIRO=${1:?roteiro}
@@ -56,7 +56,7 @@ while IFS="|" read -r -u 3 tipo arq ini fim extra; do
       vf="crop=$crop,scale=${W}:${H},setsar=1,fps=$FPS,zoompan=z='1+0.2*on/$quadros':d=1:s=${W}x${H}:fps=$FPS:x='iw/2-iw/zoom/2':y='ih/2-ih/zoom/2'"
       ffmpeg -v error -y -ss "$ini" -to "$fim" -i "$arq" -vf "$vf" "${ENC[@]}" "$seg" ;;
     stinger|outro|flash)
-      args=(--w $W --h $H --fps $FPS --marca "${MARCA// /}")
+      args=(--w $W --h $H --fps $FPS --marca "${TEXTO_VINHETA:-CLIPSTATION}")
       [[ "$extra" == dur=* ]] && args+=(--dur "${extra#dur=}")
       python3 "$DIR/grafismos.py" "$tipo" "$seg" "${args[@]}" ;;
     *) echo "tipo desconhecido: $tipo" >&2; exit 1 ;;
