@@ -16,22 +16,22 @@ o POV de vários streamers da mesma partida.
 ## 1. Estrutura geral (macro)
 
 ```
-[0:00–0:19]  COLD OPEN / LOBBY        → apresenta os jogadores, um por um, com tag de nome
-[0:19–0:20]  VINHETA "CLIPSTATION"    → stinger curto (~0,8 s)
-[0:20–1:08]  BLOCO 1 (fase 1)
-[1:08]       VINHETA
-[1:08–2:27]  BLOCO 2
-[2:27]       VINHETA
- ...         (repete: vinhetas em 3:40, 4:47, 5:41, 6:53, 9:02, 10:22, 12:15)
-[~14:00]     ÚLTIMO CLIPE
-[~14:07–14:20] TELA FINAL "MAIS VÍDEOS / SE INSCREVA"
+[0:00–1:03.1]  COLD OPEN              → lobby com tag de nome de cada jogador + 1º momento engraçado
+[1:03.1–1:08.2] VINHETA "CLIPSTATION" → 5,1 s, aparece UMA vez só (abre o vídeo de verdade)
+[1:08.2–2:27.5] BLOCO 1
+[2:27.5]        FLASH BRANCO (4 quadros)
+[2:27.6–3:40.4] BLOCO 2
+ ...            flashes em 2:27.5, 3:40.4, 4:47.8, 5:41.2, 6:53.4, 9:02.4, 10:22.1, 12:15.1
+[12:15.3–14:06.6] ÚLTIMO BLOCO
+[14:06.6–14:20.5] TELA FINAL "MAIS VÍDEOS / SE INSCREVA" (13,9 s)
 ```
 
 Cada **bloco** ≈ 1 nível/rodada do jogo (60–130 s). Dentro do bloco, a montagem pula entre
 os POVs dos streamers para contar a mesma situação de ângulos diferentes.
 
-Pontos em que o detector achou **3 cortes no mesmo frame** (68,1 / 147,5 / 220,4 / 287,8 / 341,2 /
-413,4 / 542,5 / 622,1 / 735,2 s) = assinatura da vinheta entre blocos.
+Os pontos em que o detector achou **3 cortes no mesmo quadro** são as transições entre blocos.
+Medindo a luminância quadro a quadro, elas são um **estrobo branco de 4 quadros**
+(Y ≈ 226 → 174 → 226 → 190), não a vinheta.
 
 ![intro](intro.png)
 
@@ -69,11 +69,14 @@ Pontos em que o detector achou **3 cortes no mesmo frame** (68,1 / 147,5 / 220,4
 
 ![zoom](zoom.png)
 
-### 2.5 Vinheta / stinger entre blocos
-- Fundo azul-marinho escuro (`#0b1220`) com **partículas/poeira e riscos verticais de "filme velho"**.
-- Texto **"CLIPSTATION"** branco, fonte display pixelada/bold, levemente inclinado (~−3°).
-- Duração ≈ **0,8–1,0 s**, entra com corte seco, sai com corte seco.
-- (Provavelmente um "whoosh"/impacto no áudio.)
+### 2.5 Vinheta (uma vez) e flashes (entre blocos)
+**Vinheta, 1:03.1–1:08.2 (5,1 s):**
+- 1 quadro preto → fundo azul-marinho escuro (`#0b1220`) com **poeira e riscos verticais de "filme velho"**.
+- Texto **"CLIPSTATION"** branco, fonte display bold/itálica, subindo para a direita (~6°),
+  **entra deslizando da direita em ~0,7 s, com rastros de velocidade** (3 linhas paralelas), e depois fica parado.
+- Sai com o mesmo flash branco das transições.
+
+**Flash entre blocos:** 4 quadros (~0,13 s) de estrobo branco/cinza, com corte seco para o próximo bloco.
 
 ![stinger](trans1.png)
 
@@ -81,7 +84,7 @@ Pontos em que o detector achou **3 cortes no mesmo frame** (68,1 / 147,5 / 220,4
 - Mesmo fundo do stinger (azul-marinho + partículas).
 - Texto "MAIS VÍDEOS" no canto superior direito entrando com wipe de barras.
 - Círculo de texto girando **"SE INSCREVA • SE INSCREVA"** (área do botão de inscrição do YouTube).
-- Mascote chibi no canto inferior esquerdo.
+- Mascote no canto inferior esquerdo (na recriação foi trocado por um robô original, criado do zero).
 - **Barra de progresso laranja/amarela** no rodapé enchendo da esquerda para direita (contador do end screen).
 - Espaço vazio à direita = onde entram os cards de "vídeo sugerido" do YouTube.
 
@@ -98,7 +101,7 @@ Pontos em que o detector achou **3 cortes no mesmo frame** (68,1 / 147,5 / 220,4
 2. **Escalada**: cortes de 2–3 s alternando POVs de streamers diferentes.
 3. **Clímax**: susto/morte → corte para **webcam em tela cheia** (1–4 s).
 4. **Respiro**: volta para gameplay ou pula para o próximo momento.
-5. A cada nível/rodada → **stinger** CLIPSTATION.
+5. A cada nível/rodada → **flash branco** de 4 quadros (a vinheta CLIPSTATION aparece só uma vez, após o cold open).
 
 Áudio: sempre o áudio original da live (voz + jogo), sem trilha de fundo perceptível; volume
 puxado para ~−14 LUFS.
@@ -118,7 +121,7 @@ Passo a passo manual (Premiere/CapCut/DaVinci) ou via script:
 | 4 | Por rodada: setup → POVs alternados → zoom na cam | cortes secos |
 | 5 | Zoom na cam: crop da região da webcam, escala até tela cheia, keyframe 100%→120% | 1–4 s |
 | 6 | Tag de nome no início de cada streamer novo | inf. esq., 3 s, pop-in |
-| 7 | Stinger CLIPSTATION entre rodadas | 0,8 s |
+| 7 | Vinheta CLIPSTATION após o cold open; flash branco entre rodadas | 5,1 s / 4 quadros |
 | 8 | Marca d'água fixa sup. dir. | 50% opacidade |
 | 9 | Tela final 13–20 s | |
 | 10 | Normalizar áudio | `loudnorm=I=-14:TP=-1` |
@@ -130,7 +133,21 @@ O script lê um arquivo de roteiro (`roteiro.txt`) com uma linha por segmento:
 # tipo   | arquivo      | inicio | fim   | extra
 clip     | cellbit.mp4  | 00:10  | 00:35 | nome=CELLBIT
 cam      | cellbit.mp4  | 00:35  | 00:38 | crop=480:270:1440:0
-stinger  |              |        |       |
+stinger  |              |        |       | dur=5.1
 clip     | alan.mp4     | 01:02  | 01:20 | nome=ALANZOKA
+flash    |              |        |       |
 outro    |              |        |       |
+```
+
+---
+
+## 5. Recriação
+
+`roteiro_recriacao.txt` remonta o vídeo inteiro usando o próprio `exemplo.mp4` como fonte (não há VODs
+brutos). Os trechos de conteúdo foram mantidos e a vinheta, os 8 flashes e a tela final foram
+**regerados** por `scripts/grafismos.py`. Como a marca d'água já vem gravada no conteúdo, a recriação roda sem
+aplicar outra:
+
+```bash
+MARCA="" W=1280 H=720 scripts/montar_clipstation.sh analise/roteiro_recriacao.txt recriacao.mp4
 ```

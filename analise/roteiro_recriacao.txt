@@ -1,0 +1,23 @@
+# Recriação do exemplo.mp4: conteúdo original + grafismos regerados.
+# Tempos em segundos, medidos quadro a quadro (ver DESMONTE_EDICAO.md, seção 2.5).
+# tipo  | arquivo     | inicio | fim    | extra
+clip    | exemplo.mp4 | 0      | 63.10  |
+stinger |             |        |        | dur=5.1
+clip    | exemplo.mp4 | 68.20  | 147.51 |
+flash   |             |        |        |
+clip    | exemplo.mp4 | 147.65 | 220.35 |
+flash   |             |        |        |
+clip    | exemplo.mp4 | 220.49 | 287.75 |
+flash   |             |        |        |
+clip    | exemplo.mp4 | 287.89 | 341.17 |
+flash   |             |        |        |
+clip    | exemplo.mp4 | 341.31 | 413.38 |
+flash   |             |        |        |
+clip    | exemplo.mp4 | 413.51 | 542.44 |
+flash   |             |        |        |
+clip    | exemplo.mp4 | 542.58 | 622.05 |
+flash   |             |        |        |
+clip    | exemplo.mp4 | 622.19 | 735.13 |
+flash   |             |        |        |
+clip    | exemplo.mp4 | 735.27 | 846.60 |
+outro   |             |        |        | dur=13.9
