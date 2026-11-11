@@ -11,8 +11,8 @@ CAM = "440:282:25:63"  # janela da webcam no layout 1080p da live
 
 # Cada bloco é uma lista de clipes: (inicio, fim, [zooms na cam (ini, fim)], nome_da_tag)
 BLOCOS = [
-    # cold open: o melhor susto, curtinho
-    [(5813, 5830, [(5815, 5819)], None)],
+    # cold open: a reação do PvP (tem ação na tela; a lava fica de fora porque a tela estava pausada)
+    [(12462, 12478, [(12463, 12468)], None)],
     "stinger",
     # abertura da live
     [(226, 243, [], "oCRAZYOFF")],
@@ -24,15 +24,13 @@ BLOCOS = [
      (13060, 13102, [], None)],
     "flash",
     # perigos
-    [(5790, 5848, [(5814, 5819), (5826, 5829)], None),
-     (10565, 10628, [], None),
-     (7752, 7767, [], None),
+    [(10565, 10628, [], None),
      (11770, 11792, [(11773, 11777)], None)],
     "flash",
     # o inglês
     [(7945, 7988, [(7958, 7963)], None),
      (9626, 9656, [], None),
-     (10246, 10290, [], None)],
+     (10266, 10290, [], None)],
     "flash",
     # pvp
     [(12282, 12320, [], None),
@@ -40,7 +38,7 @@ BLOCOS = [
      (12862, 12896, [], None)],
     "flash",
     # aleatoriedades
-    [(12123, 12155, [], None),
+    [(12125, 12150, [], None),
      (14648, 14710, [(14680, 14685)], None)],
     "outro",
 ]
