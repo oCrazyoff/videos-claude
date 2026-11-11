@@ -1,0 +1,38 @@
+# gerado por selecao.py — tipo | arquivo | inicio | fim | extra
+clip | vod_12462_12478.mp4 | 0 | 1 |
+cam | vod_12462_12478.mp4 | 1 | 6 | crop=440:282:25:63
+clip | vod_12462_12478.mp4 | 6 | 16 |
+stinger | | | | dur=4
+clip | vod_226_243.mp4 | 0 | 17 | nome=oCRAZYOFF
+flash | | | |
+clip | vod_5176_5230.mp4 | 0 | 54 |
+clip | vod_9497_9537.mp4 | 0 | 31 |
+cam | vod_9497_9537.mp4 | 31 | 39 | crop=440:282:25:63
+clip | vod_9497_9537.mp4 | 39 | 40 |
+clip | vod_10700_10732.mp4 | 0 | 32 |
+clip | vod_13060_13102.mp4 | 0 | 42 |
+flash | | | |
+clip | vod_10565_10628.mp4 | 0 | 63 |
+clip | vod_11770_11792.mp4 | 0 | 3 |
+cam | vod_11770_11792.mp4 | 3 | 7 | crop=440:282:25:63
+clip | vod_11770_11792.mp4 | 7 | 22 |
+flash | | | |
+clip | vod_7945_7988.mp4 | 0 | 13 |
+cam | vod_7945_7988.mp4 | 13 | 18 | crop=440:282:25:63
+clip | vod_7945_7988.mp4 | 18 | 43 |
+clip | vod_9626_9656.mp4 | 0 | 30 |
+clip | vod_10266_10290.mp4 | 0 | 24 |
+flash | | | |
+clip | vod_12282_12320.mp4 | 0 | 38 |
+clip | vod_12440_12510.mp4 | 0 | 23 |
+cam | vod_12440_12510.mp4 | 23 | 29 | crop=440:282:25:63
+clip | vod_12440_12510.mp4 | 29 | 45 |
+cam | vod_12440_12510.mp4 | 45 | 50 | crop=440:282:25:63
+clip | vod_12440_12510.mp4 | 50 | 70 |
+clip | vod_12862_12896.mp4 | 0 | 34 |
+flash | | | |
+clip | vod_12125_12150.mp4 | 0 | 25 |
+clip | vod_14648_14710.mp4 | 0 | 32 |
+cam | vod_14648_14710.mp4 | 32 | 37 | crop=440:282:25:63
+clip | vod_14648_14710.mp4 | 37 | 62 |
+outro | | | | dur=12
